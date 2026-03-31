@@ -1,0 +1,55 @@
+<div [style.display]="mostrarMenu ? 'flex' : 'block'" style="min-height: 100vh; width: 100%;">
+  
+  <!-- Sidebar -->
+  <aside *ngIf="mostrarMenu" style="width: 260px; min-width: 260px; background: #0f172a; color: white; display: flex; flex-direction: column;">
+    
+    <div style="padding: 25px 20px;">
+      <h2 style="font-size: 1.4rem; margin-bottom: 30px; display: flex; align-items: center; gap: 10px;">
+        <span>🔩</span> Bitácora
+      </h2>
+      
+      <nav>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <!-- Enlaces de Navegación -->
+          <li style="margin-bottom: 10px;">
+            <a routerLink="/dashboard" routerLinkActive="active-link" style="color: #cbd5e1; text-decoration: none; display: flex; align-items: center; padding: 12px 15px; border-radius: 8px; transition: 0.3s;">
+              <span style="margin-right: 12px;">📊</span> Dashboard
+            </a>
+          </li>
+          
+          <li style="margin-bottom: 10px;">
+            <a routerLink="/servicios" routerLinkActive="active-link" style="color: #cbd5e1; text-decoration: none; display: flex; align-items: center; padding: 12px 15px; border-radius: 8px; transition: 0.3s;">
+              <span style="margin-right: 12px;">🛠️</span> Servicios
+            </a>
+          </li>
+          
+          <li style="margin-bottom: 10px;">
+            <a routerLink="/clientes" routerLinkActive="active-link" style="color: #cbd5e1; text-decoration: none; display: flex; align-items: center; padding: 12px 15px; border-radius: 8px; transition: 0.3s;">
+              <span style="margin-right: 12px;">👥</span> Clientes
+            </a>
+          </li>
+
+          <hr style="opacity: 0.1; margin: 25px 0; border: none; border-top: 1px solid white;">
+
+          <!-- Botón de Logout Correcto -->
+          <li>
+            <div (click)="salir()" 
+                 style="cursor: pointer; color: #fb7185; display: flex; align-items: center; padding: 12px 15px; border-radius: 8px; transition: 0.3s;"
+                 onmouseover="this.style.backgroundColor='rgba(251, 113, 133, 0.1)'"
+                 onmouseout="this.style.backgroundColor='transparent'">
+              <span style="margin-right: 12px;">🚪</span> 
+              <strong>Cerrar Sesión</strong>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+  </aside>
+
+  <!-- Contenido de las páginas -->
+  <main style="flex: 1; background-color: #f1f5f9; min-height: 100vh; overflow-y: auto;">
+    <router-outlet></router-outlet>
+  </main>
+
+</div>

@@ -1,0 +1,28 @@
+/* Contenedor principal que usa Flexbox */
+.app-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.wrapper-login {
+  display: block; /* El login ocupa todo el ancho */
+  width: 100%;
+}
+
+.wrapper-dashboard {
+  display: flex; /* Dashboard usa Flexbox para Sidebar + Contenido */
+}
+
+/* Espacio para el contenido principal */
+.content-layout {
+  flex-grow: 1; /* Ocupa todo el espacio restante */
+  margin-left: 70px; /* Ancho de la sidebar cerrada */
+  padding: 30px;
+  background-color: #f8fafc; /* Gris muy claro para resaltar las cards */
+  transition: margin-left 0.3s ease; /* Sincronizado con la animación del sidebar */
+}
+
+/* Si quieres que el contenido se empuje cuando el sidebar se expande */
+.app-container:has(app-sidebar:hover) .content-layout {
+  margin-left: 250px;
+}

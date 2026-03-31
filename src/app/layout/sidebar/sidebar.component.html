@@ -1,0 +1,32 @@
+<div class="sidebar">
+  <div class="sidebar-inner">
+    <div class="logo-section">
+      <span class="icon">🛠️</span>
+      <span class="text">Bitácora</span>
+    </div>
+
+    <nav class="menu-items">
+      <a routerLink="/dashboard" routerLinkActive="active">
+        <span class="icon">📊</span>
+        <span class="text">Dashboard</span>
+      </a>
+      <a routerLink="/servicios" routerLinkActive="active">
+        <span class="icon">🔧</span>
+        <span class="text">Servicios</span>
+      </a>
+      <a routerLink="/clientes" routerLinkActive="active">
+        <span class="icon">👤</span>
+        <span class="text">Clientes</span>
+      </a>
+    </nav>
+
+    <div class="footer-section">
+      <hr>
+     <!-- Quitamos routerLink y ponemos (click) -->
+     <a (click)="logout()" class="logout" style="cursor: pointer;">
+      <span class="icon">🚪</span>
+      <span class="text">Logout</span>
+     </a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,128 @@
+.login-wrapper {
+  height: 100vh;
+  background: #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+}
+
+.login-card {
+  display: flex;
+  width: 900px;
+  height: 550px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+/* Panel Izquierdo */
+.brand-panel {
+  flex: 1;
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  text-align: center;
+}
+
+.logo-icon { font-size: 50px; margin-bottom: 20px; display: block; }
+.brand-panel h1 { font-size: 32px; margin-bottom: 10px; }
+.brand-panel h1 span { color: #3b82f6; }
+
+/* Panel Derecho */
+.form-panel {
+  flex: 1.2;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-box h2 { font-size: 28px; color: #1e293b; margin-bottom: 5px; }
+.subtitle { color: #64748b; margin-bottom: 35px; }
+
+.input-group { margin-bottom: 20px; }
+.input-group label { display: block; font-size: 13px; font-weight: 600; color: #475569; margin-bottom: 8px; }
+
+.input-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-field .icon { position: absolute; left: 15px; color: #94a3b8; }
+
+.input-field input {
+  width: 100%;
+  padding: 12px 12px 12px 45px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  transition: 0.2s;
+}
+
+.input-field input:focus {
+  border-color: #3b82f6;
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 14px;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: 0.2s;
+}
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 20px 0;
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+.divider::before, .divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.divider span { padding: 0 10px; }
+
+.btn-google {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: white;
+  border: 2px solid #e2e8f0;
+  padding: 12px;
+  border-radius: 12px;
+  font-weight: 600;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-google img { width: 20px; }
+
+.btn-google:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  transform: translateY(-1px);
+}
+.btn-submit:hover { background: #2563eb; }
+
+.help-links { text-align: center; margin-top: 25px; }
+.help-links a { font-size: 13px; color: #64748b; text-decoration: none; }

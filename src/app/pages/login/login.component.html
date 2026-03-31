@@ -1,0 +1,59 @@
+<div class="login-wrapper">
+  <div class="login-card">
+    <!-- Panel de Marca -->
+    <div class="brand-panel">
+      <div class="brand-info">
+        <span class="logo-icon">🔩</span>
+        <h1>Sistema <span>Bitácora</span></h1>
+        <p>Control de mantenimiento y reportes técnicos de alta precisión.</p>
+      </div>
+    </div>
+
+    <!-- Panel de Formulario -->
+    <div class="form-panel">
+      <div class="login-box"> <!-- Cambié form por div para evitar recargas accidentales -->
+        <h2>Bienvenido</h2>
+        <p class="subtitle">Ingresa tus credenciales de acceso</p>
+
+        <div class="input-group">
+          <label>Usuario</label>
+          <div class="input-field">
+            <span class="icon">👤</span>
+            <input type="text" placeholder="ej. admin_maquinaria">
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label>Contraseña</label>
+          <div class="input-field">
+            <span class="icon">🔒</span>
+            <input type="password" placeholder="••••••••">
+          </div>
+        </div>
+
+        <button type="button" class="btn-submit">
+          Entrar al Sistema
+        </button>
+
+        <div class="google-auth-container" style="margin-top: 20px; text-align: center;">
+          <p style="color: #64748b; font-size: 14px; margin-bottom: 10px;">O también puedes entrar con:</p>
+          
+          <!-- Botón de Google con evento corregido -->
+          <button (click)="loginConGoogle()" type="button" 
+                  style="display: flex; align-items: center; justify-content: center; width: 100%; padding: 12px; border: 1px solid #dadce0; border-radius: 8px; background-color: white; cursor: pointer; font-family: sans-serif; font-weight: 500; color: #3c4043; transition: background-color 0.2s, box-shadow 0.2s; box-shadow: 0 1px 2px 0 rgba(60,64,67,0.30), 0 1px 3px 1px rgba(60,64,67,0.15);">
+    
+            <img src="https://auth.firebase.com/v8/images/google.svg" 
+                 alt="Google Logo" 
+                 style="width: 18px; height: 18px; margin-right: 12px; display: block;">
+         
+                 Continuar con Google
+     </button>
+        </div>
+
+        <div class="help-links">
+          <a href="#">¿Olvidaste tu contraseña?</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

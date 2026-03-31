@@ -1,0 +1,46 @@
+<div class="clientes-container">
+  <!-- Cabecera -->
+  <div class="header-section">
+    <h2>👤 Directorio de Clientes</h2>
+    <button class="btn-nuevo" (click)="abrirModalNuevo()">+ Nuevo Cliente</button>
+  </div>
+
+  <!-- Estadísticas rápidas (Opcional) -->
+  <div class="stats-bar" *ngIf="clientes.length > 0">
+    <span><strong>{{ clientes.length }}</strong> Clientes Totales</span>
+  </div>
+
+  <!-- Grid de Clientes -->
+  <div class="clientes-grid">
+    <div class="cliente-card" *ngFor="let cliente of clientes">
+      <div class="card-accent"></div>
+      <div class="card-content">
+        <div class="cliente-info">
+          <span class="empresa-tag">🏢 {{ cliente.empresa }}</span>
+          <h3>{{ cliente.nombre }}</h3>
+          <p class="cliente-tel">📞 {{ cliente.telefono || 'Sin teléfono' }}</p>
+        </div>
+        
+        <div class="cliente-meta">
+          <div class="meta-item">
+            <span class="meta-icon">📍</span>
+            <span>Sucursal Principal</span>
+          </div>
+        </div>
+
+        <div class="card-actions">
+          <button class="btn-view" (click)="verHistorial(cliente.id_cliente)">
+            📋 Historial
+          </button>
+          <button class="btn-edit" (click)="editarCliente(cliente)">
+            ✏️
+          </button>
+          <button class="btn-delete" (click)="eliminarCliente(cliente.id_cliente)">
+            🗑️
+          </button>
+        </div>
+      </div>
+    </div> <!-- Cierra cliente-card -->
+  </div> <!-- Cierra clientes-grid -->
+
+</div> <!-- Cierra clientes-container (ESTE ES EL ÚLTIMO) -->

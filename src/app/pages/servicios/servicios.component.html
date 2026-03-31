@@ -1,0 +1,83 @@
+<div class="servicios-page">
+  <!-- Encabezado -->
+  <div class="header-section">
+    <h1>⚙️ Historial de Maquinaria</h1>
+    <p>Gestión centralizada de mantenimientos y servicios técnicos.</p>
+  </div>
+
+  <!-- Contenedor de Tabla -->
+  <div class="tabla-maestra">
+    <table class="industrial-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Cliente</th>
+          <th>Sucursal</th>
+          <th>Trabajo Realizado</th>
+          <th>Estado</th>
+          <th class="text-center">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let s of servicios">
+          <td class="bold">#{{ s.id_servicio }}</td>
+          <td class="client-cell">{{ s.cliente }}</td>
+          <td>{{ s.sucursal }}</td>
+          <td class="text-truncate">{{ s.trabajo_realizado }}</td>
+          <td>
+            <span class="status-badge" [ngClass]="s.estado?.toLowerCase().replace(' ', '_')">
+              {{ s.estado }}
+            </span>
+          </td>
+          <td class="text-center">
+            <button class="btn-detalles" (click)="verDetalles(s)">
+              🔍 Ver Detalle
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- MODAL DE DETALLES -->
+<div class="modal-overlay" *ngIf="mostrarModal" (click)="cerrarModal()">
+  <!-- stopPropagation evita que el modal se cierre al hacer clic dentro de la caja blanca -->
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    
+    <div class="modal-header">
+      <h2>📋 Ficha de Servicio #{{ servicioSeleccionado?.id_servicio }}</h2>
+      <button class="btn-close" (click)="cerrarModal()">×</button>
+    </div>
+
+    <div class="modal-body">
+      <!-- Info Rápida de MySQL -->
+      <div class="info-grid">
+        <div class="info-item">
+          <label>Empresa / Cliente</label>
+          <p>{{ servicioSeleccionado?.cliente }}</p>
+        </div>
+        <div class="info-item">
+          <label>Sucursal</label>
+          <p>{{ servicioSeleccionado?.sucursal }}</p>
+        </div>
+        <div class="info-item full">
+          <label>Descripción del Trabajo</label>
+          <p>{{ servicioSeleccionado?.trabajo_realizado }}</p>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Componente de Firebase -->
+      <h3>🛠️ Seguimiento en Tiempo Real</h3>
+      <div class="bitacora-wrapper">
+        <app-bitacora [servicioId]="servicioSeleccionado?.id_servicio"></app-bitacora>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn-primary" (click)="cerrarModal()">Cerrar Ventana</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,99 @@
+.clientes-container {
+  padding: 30px;
+  background-color: #f8fafc;
+  min-height: 100vh;
+}
+
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.header-section h2 { color: #1e293b; font-size: 24px; }
+
+.btn-nuevo {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-nuevo:hover { background: #1d4ed8; transform: translateY(-2px); }
+
+/* Grid de Tarjetas */
+.clientes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.cliente-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  position: relative;
+  transition: 0.3s;
+}
+
+.cliente-card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
+
+.card-accent {
+  height: 4px;
+  background: linear-gradient(90deg, #2563eb, #60a5fa);
+}
+
+.card-content { padding: 20px; }
+
+.empresa-tag {
+  font-size: 11px;
+  font-weight: 700;
+  color: #2563eb;
+  background: #eff6ff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.cliente-info h3 { margin: 12px 0 5px; color: #0f172a; font-size: 18px; }
+.cliente-tel { color: #64748b; font-size: 14px; margin-bottom: 15px; }
+
+.cliente-meta {
+  border-top: 1px solid #f1f5f9;
+  padding-top: 15px;
+  margin-bottom: 20px;
+}
+
+.meta-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #475569; }
+
+.card-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-view {
+  flex: 1;
+  background: #f1f5f9;
+  border: none;
+  padding: 8px;
+  border-radius: 6px;
+  color: #475569;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-edit, .btn-delete {
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-edit { background: #fef3c7; color: #d97706; }
+.btn-delete { background: #fee2e2; color: #dc2626; }

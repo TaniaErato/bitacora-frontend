@@ -1,0 +1,82 @@
+<div class="dashboard-container">
+  
+  <!-- Encabezado de la Página -->
+  <header class="page-header">
+    <div class="header-content">
+      <h1><i class="icon-dashboard"></i> Panel de Control</h1>
+      <p>Gestión y registro de bitácora técnica para maquinaria pesada</p>
+    </div>
+  </header>
+
+  <main class="content-body">
+    <!-- 🔹 TARJETA DE REGISTRO PRINCIPAL -->
+    <section class="card-form">
+      <div class="card-header-accent">
+        <h3><span class="step-number">1</span> Información del Servicio</h3>
+      </div>
+
+      <form (ngSubmit)="crearServicio()" class="main-form">
+        <div class="form-grid">
+          
+          <!-- Selección de Cliente -->
+          <div class="form-group">
+           <label>Seleccionar Cliente:</label>
+           <select [(ngModel)]="nuevoServicio.id_cliente" name="clienteId" class="form-control">
+             <option [value]="null" disabled selected>-- Seleccione un cliente --</option>
+             <!-- Recorre la lista de clientes que traemos de MySQL -->
+             <option *ngFor="let c of clientes" [value]="c.id_cliente">
+               {{ c.nombre }} ({{ c.empresa }})
+             </option>
+           </select>
+           </div>
+
+          <!-- Selección de Sucursal -->
+          <div class="input-group">
+            <label for="sucursal">Sucursal Destino</label>
+            <select id="sucursal" [(ngModel)]="nuevoServicio.id_sucursal" name="sucursal" required>
+              <option value="" disabled selected>Seleccione la sucursal...</option>
+              <!-- Aquí se cargan tus sucursales de la BD -->
+              <option *ngFor="let s of sucursales" [value]="s.id_sucursal">
+                {{ s.nombre_sucursal }}
+              </option>
+            </select>
+          </div>
+
+          <!-- Detalle del Trabajo (Ocupa todo el ancho) -->
+          <div class="input-group full-width">
+            <label for="trabajo">Descripción Técnica del Trabajo</label>
+            <textarea 
+              id="trabajo" 
+              [(ngModel)]="nuevoServicio.trabajo_realizado" 
+              name="trabajo" 
+              placeholder="Ej: Mantenimiento preventivo de motor, cambio de filtros y aceite..." 
+              rows="4"
+              required>
+            </textarea>
+          </div>
+
+          <!-- Estado del Equipo -->
+          <div class="input-group full-width">
+            <label for="estado">Estado Actual del Equipo</label>
+            <div class="status-selector">
+              <select id="estado" [(ngModel)]="nuevoServicio.estado" name="estado" required>
+                <option value="pendiente">🟠 Pendiente de revisión</option>
+                <option value="en_proceso">🔵 En mantenimiento activo</option>
+                <option value="finalizado">🟢 Equipo operativo / Finalizado</option>
+              </select>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn-primary-large">
+            <span class="btn-text">Generar Registro en Bitácora</span>
+            <span class="btn-icon">→</span>
+          </button>
+        </div>
+      </form>
+    </section>
+
+  </main>
+</div>

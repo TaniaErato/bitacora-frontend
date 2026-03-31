@@ -1,0 +1,29 @@
+<div class="bitacora-timeline">
+  <!-- Si no hay datos -->
+  <div *ngIf="bitacora.length === 0" class="no-data">
+    <p>📭 Sin registros cronológicos para este folio.</p>
+  </div>
+
+  <!-- Items de la Bitácora -->
+  <div class="timeline-item" *ngFor="let item of bitacora">
+    <div class="timeline-marker"></div>
+    
+    <div class="timeline-content">
+      <div class="timeline-header">
+        <!-- Mostramos Fecha y Hora exacta de Firestore -->
+        <span class="fecha-hora">
+          📅 {{ item.fecha?.toDate() | date:'dd/MM/yyyy' }} 
+          <span class="hora">| ⏰ {{ item.fecha?.toDate() | date:'shortTime' }}</span>
+        </span>
+        <span class="tecnico-tag">👨‍🔧 {{ item.tecnico || 'Sistema' }}</span>
+      </div>
+      
+      <p class="comentario-texto">{{ item.comentario }}</p>
+      
+      <!-- Justificación de Firebase: Metadatos adicionales -->
+      <div class="timeline-footer" *ngIf="item.ubicacion">
+        <small>📍 Registrado desde: {{ item.ubicacion }}</small>
+      </div>
+    </div>
+  </div>
+</div>
